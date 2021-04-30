@@ -1,34 +1,32 @@
 <?php
-// get ID of the product to be read
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
   
-// include database and object files
+// To include database and object files
 include_once 'config/database.php';
 include_once 'objects/product.php';
 include_once 'objects/category.php';
   
-// get database connection
+// Database connection
 $database = new Database();
 $db = $database->getConnection();
   
-// prepare objects
+// Objects
 $product = new Product($db);
 $category = new Category($db);
   
-// set ID property of product to be read
+// To set ID property of product to be read
 $product->id = $id;
   
-// read the details of product to be read
 $product->readOne();
 
 // set page headers
 $page_title = "Read One Product";
 include_once "layout_header.php";
   
-// read products button
+// Home page button
 echo "<div class='right-button-margin'>";
     echo "<a href='index.php' class='btn btn-primary pull-right'>";
-        echo "<span class='glyphicon glyphicon-list'></span> Read Products";
+        echo "<span class='glyphicon glyphicon-list'></span> Home Page";
     echo "</a>";
 echo "</div>";
 

@@ -1,24 +1,23 @@
 <?php
-class Database{
-    // specify your own database credentials
+class Database {
+    // Database credentials
     private $host = "localhost";
-    private $db_name = "php_oop";
+    private $db_name = "practice_oop";
     private $username = "root";
     private $password = "";
+
     public $conn;
-   
-    // get the database connection
-    public function getConnection(){
-   
+
+    public function getConnection() {
         $this->conn = null;
-   
-        try{
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-        }catch(PDOException $exception){
-            echo "Connection error: " . $exception->getMessage();
+
+        try {
+            $this->conn = new PDO("mysql: host=". $this->host ."; dbname=" .$this->db_name, $this->username, $this->password);
+        }catch(PDOException $e) {
+            echo "Connection Error: " .$e.getMessage();
         }
-   
         return $this->conn;
     }
-}
+} 
+
 ?>
